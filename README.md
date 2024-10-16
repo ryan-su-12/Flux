@@ -7,6 +7,9 @@ Mind Map making app with build in note taking, using LLM's to give mindmaps at t
 - Cohere
 - Mermaid.js
 - Supabase
+- Tailwind CSS
+- Python
+- TypeScript
 
 # Current Structure
 ![image](https://github.com/user-attachments/assets/1438ed1b-6c32-4d05-8ce5-4e0df5b442a1)
