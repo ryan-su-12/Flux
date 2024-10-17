@@ -18,43 +18,17 @@ class User(BaseModel):
 class SignupRequest(BaseModel):
     email: str
     password: str
-
+# Define a Pydantic model for the login request body
+class LoginRequest(BaseModel):
+    email: str
+    password: str
 # Endpoint to create a new user
-@router.post("/users")
-async def create_user(user: User):
-    try:
-        # Insert the new user into the Supabase "users" table
-        response = supabase.table("users").insert({
-            "name": user.name,
-            "email": user.email,
-            "password": user.password
-        }).execute()
 
-        # Log the response to see its structure
-        logging.info(f"Supabase response: {response}")
-
-        # Handle the response correctly depending on its structure
-        if hasattr(response, 'error') and response.error:
-            raise HTTPException(status_code=400, detail=response.error.message)
-
-        return {"message": "User created successfully", "data": getattr(response, 'data', None)}
-
-    except Exception as e:
-        # Catch any exception and return as an HTTP error response
-        logging.error(f"Error occurred: {str(e)}")
-        raise HTTPException(status_code=500, detail=str(e))
     
 #-------------------------------- User Signup ----------------------------------------
 
-# Signup api
-
-
-# Set up logging for debugging
-
 
 # Endpoint for signup
-
-
 @router.post("/signup")
 async def signup(signup_request: SignupRequest):
     try:
@@ -80,8 +54,11 @@ async def signup(signup_request: SignupRequest):
 
 #--------------- LOGIN ----------------------------------
 @router.post("/login")
-async def login(email: str, password: str):
+async def login(login_request: LoginRequest):
     try:
+        email = login_request.email
+        password = login_request.password
+
         response = supabase.auth.sign_in_with_password({
             "email": email,
             "password": password
@@ -92,6 +69,7 @@ async def login(email: str, password: str):
 
         if response.user is None:
             raise HTTPException(status_code=400, detail="Invalid credentials or user does not exist.")
+        
         return {"message": "Login failed", "error": "Unknown error"}
 
     except Exception as e:
