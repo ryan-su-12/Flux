@@ -15,7 +15,9 @@ class User(BaseModel):
     email: str
     password: int
 # maybe here, causing the 422 error
-# 
+class SignupRequest(BaseModel):
+    email: str
+    password: str
 
 # Endpoint to create a new user
 @router.post("/users")
@@ -51,16 +53,20 @@ async def create_user(user: User):
 
 
 # Endpoint for signup
-@router.post("/auth/signup")
-async def signup(email: str, password: str):
+
+
+@router.post("/signup")
+async def signup(signup_request: SignupRequest):
     try:
+        # Extract email and password from the request
+        email = signup_request.email
+        password = signup_request.password
 
         response = supabase.auth.sign_up({
             "email": email, 
             "password": password
         })
 
-   
         logging.info(f"Supabase response: {response}")
 
         if 'error' in response and response['error']:
@@ -73,7 +79,7 @@ async def signup(email: str, password: str):
         raise HTTPException(status_code=500, detail=str(e))
 
 #--------------- LOGIN ----------------------------------
-@router.post("/auth/login")
+@router.post("/login")
 async def login(email: str, password: str):
     try:
         response = supabase.auth.sign_in_with_password({
@@ -92,7 +98,7 @@ async def login(email: str, password: str):
         raise HTTPException(status_code=500, detail=str(e))
 
 # --------------- LOGOUT ----------------------
-@router.post("/auth/logout")
+@router.post("/logout")
 async def logout(token: str):
     try:
         # Use the token provided by the client to sign out

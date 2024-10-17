@@ -36,11 +36,6 @@ export default function LoginPage() {
                   className="w-full p-3 mt-4 rounded-md bg-gray-700 border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
                 <input
-                  type="name"
-                  placeholder="Name"
-                  className="w-full p-3 mt-4 rounded-md bg-gray-700 border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                />
-                <input
                   type="password"
                   placeholder="Password"
                   className="w-full p-3 mt-4 rounded-md bg-gray-700 border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
@@ -52,7 +47,7 @@ export default function LoginPage() {
                   type="submit"
                   className="w-full p-3 bg-white text-gray-800 font-semibold rounded-md hover:bg-gray-300 transition"
                 >
-                  Sign Up with Email
+                  Login
                 </button>
               </div>
             </form>
