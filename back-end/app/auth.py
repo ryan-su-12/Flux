@@ -3,26 +3,24 @@ from pydantic import BaseModel
 from supabase_client import supabase
 import logging
 
-# Set up logging for debugging
+
 logging.basicConfig(level=logging.INFO)
 
-# Initialize the router for authentication routes
+
 router = APIRouter()
 
-# Define a Pydantic model to validate incoming POST requests
 class User(BaseModel):
     name: str
     email: str
     password: int
-# maybe here, causing the 422 error
+
 class SignupRequest(BaseModel):
     email: str
     password: str
-# Define a Pydantic model for the login request body
+
 class LoginRequest(BaseModel):
     email: str
     password: str
-# Endpoint to create a new user
 
     
 #-------------------------------- User Signup ----------------------------------------
