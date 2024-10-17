@@ -26,9 +26,6 @@ class LoginRequest(BaseModel):
 
     
 #-------------------------------- User Signup ----------------------------------------
-
-
-# Endpoint for signup
 @router.post("/signup")
 async def signup(signup_request: SignupRequest):
     try:
@@ -52,7 +49,7 @@ async def signup(signup_request: SignupRequest):
         logging.error(f"Error occurred during signup: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
-#--------------- LOGIN ----------------------------------
+#--------------- LOGIN ----------------------------------------------------------------
 @router.post("/login")
 async def login(login_request: LoginRequest):
     try:
@@ -75,7 +72,7 @@ async def login(login_request: LoginRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# --------------- LOGOUT ----------------------
+# --------------- LOGOUT --------------------------------------------------------------------
 @router.post("/logout")
 async def logout(token: str):
     try:
