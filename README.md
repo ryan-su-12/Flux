@@ -23,8 +23,9 @@ October 15th, 2024: Setup up frontend and backend and created a test api for fas
 October 16th, 2024: Got authentication for login and signup working
 
 October 17th, 2024: Integrated Front-end with Back-end so login pages work
+
 October 18th, 2024: Sample Dashboard for frontend
 
-October 19th, 2024: Switching AI portion to OpenAI API because python 3.13 may not have tokenizers yet which cohere needs
+October 19th, 2024: Switching AI portion to OpenAI API because python 3.13 may not have tokenizers yet which cohere needs. Creating my own dataset to fine tune my model on, using 'ada'
 
 
