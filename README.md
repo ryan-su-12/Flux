@@ -28,4 +28,6 @@ October 18th, 2024: Sample Dashboard for frontend
 
 October 19th, 2024: Switching AI portion to OpenAI API because python 3.13 may not have tokenizers yet which cohere needs. Creating my own dataset to fine tune my model on, using 'ada'
 
+October 20th, 2024: Continuing on chatgpt
+
 
