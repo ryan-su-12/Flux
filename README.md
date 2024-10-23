@@ -30,4 +30,6 @@ October 19th, 2024: Switching AI portion to OpenAI API because python 3.13 may n
 
 October 20th, 2024: Continuing on chatgpt
 
+October 21-22-23: Busy with midterms
+
 
