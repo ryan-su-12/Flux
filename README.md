@@ -32,4 +32,6 @@ October 20th, 2024: Continuing on chatgpt
 
 October 21-22-23: Busy with midterms
 
+October 24th, 2024: Finish fine tuning process and get proper output
+
 
