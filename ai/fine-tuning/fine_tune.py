@@ -1,17 +1,23 @@
-import openai
 import os
+from dotenv import load_dotenv
+from openai import OpenAI
 
-# Set your OpenAI API key
-openai.api_key = os.getenv("OPENAI_API_KEY")
+# Load environment variables from .env file
+load_dotenv()
+api_key = os.getenv("OPENAI_API_KEY")
+model_id = os.getenv("FINE_TUNED_MODEL_ID")
 
-# Upload your dataset
-with open("C:/Users/rsu49/OneDrive/Documents/GitHub/Flux/ai/data/fixed_fine_tune_dataset.jsonl", "rb") as f:
-    dataset = openai.File.create(file=f, purpose='fine-tune')
+# Initialize OpenAI client with the API key
+client = OpenAI(api_key=api_key)
 
-# Start fine-tuning the model
-fine_tune = openai.FineTune.create(
-    training_file=dataset['id'],
-    model="ada"  # Can be 'curie', 'ada', etc.
+# Create a chat completion request with the fine-tuned model
+
+completion = client.completions.create(
+    model=model_id,
+    prompt="How do I plan a software development project?",  # Replace with your desired prompt
+    max_tokens=100  # Adjust max_tokens as needed
 )
 
-print(f"Fine-tuning job started: {fine_tune['id']}")
+# Print the response from the model
+print("Response:", completion.choices[0].text.strip())
+
