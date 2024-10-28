@@ -1,7 +1,9 @@
-import { NextPage } from 'next';
-import MermaidChart from '../components/MermaidChart';
+// pages/index.tsx
 
-const Home: NextPage = () => {
+'use client'
+import Mermaid from '@/components/MermaidChart';
+
+export default function Home() {
   const chartDefinition = `
     graph TD;
       A-->B;
@@ -12,10 +14,9 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      <h1>Mermaid.js with Next.js (TypeScript)</h1>
-      <MermaidChart chart={chartDefinition} />
+      <h1>My Mermaid Diagram</h1>
+      <Mermaid chart={chartDefinition} />
     </div>
   );
-};
+}
 
-export default Home;

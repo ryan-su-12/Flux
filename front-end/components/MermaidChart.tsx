@@ -1,35 +1,28 @@
+// components/Mermaid.tsx
+
+
 import { useEffect, useRef } from 'react';
 import mermaid from 'mermaid';
 
-interface MermaidChartProps {
+interface MermaidProps {
   chart: string;
 }
 
-const MermaidChart: React.FC<MermaidChartProps> = ({ chart }) => {
-  const chartRef = useRef<HTMLDivElement>(null);
+const Mermaid = ({ chart }: MermaidProps) => {
+  const mermaidRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    mermaid.initialize({ startOnLoad: true });
-    if (chartRef.current) {
+    if (mermaidRef.current) {
       try {
-        // Only using the 3 arguments as allowed by TypeScript
-        mermaid.render(
-          'graphDiv', 
-          chart, 
-          (svgCode: string | Element ) => {
-            if (chartRef.current) {
-              chartRef.current.innerHTML = svgCode;
-            }
-          }
-        );
-      } catch (e) {
-        console.error("Mermaid diagram rendering error:", e);
+        mermaid.initialize({ startOnLoad: true });
+        mermaid.contentLoaded(); // Render the Mermaid chart
+      } catch (error) {
+        console.error("Mermaid initialization error:", error);
       }
     }
   }, [chart]);
 
-  return <div ref={chartRef} />;
+  return <div className="mermaid" ref={mermaidRef}>{chart}</div>;
 };
 
-export default MermaidChart;
-
+export default Mermaid;
