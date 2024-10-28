@@ -4,7 +4,7 @@ Mind Map making app with build in note taking, using LLM's to give mindmaps at t
 # Tech Stack
 - Next.js
 - Fastapi
-- Cohere
+- OpenAI
 - Mermaid.js
 - Supabase
 - Tailwind CSS
