@@ -34,4 +34,6 @@ October 21-22-23: Busy with midterms
 
 October 24th, 2024: Finish fine tuning process and get proper output
 
+October 27th, 2024: Mermaid code on frontend
+
 
