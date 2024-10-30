@@ -4,7 +4,7 @@ Mind Map making app with build in note taking, using LLM's to give mindmaps at t
 # Tech Stack
 - Next.js
 - Fastapi
-- Cohere
+- OpenAI
 - Mermaid.js
 - Supabase
 - Tailwind CSS
@@ -33,5 +33,7 @@ October 20th, 2024: Continuing on chatgpt
 October 21-22-23: Busy with midterms
 
 October 24th, 2024: Finish fine tuning process and get proper output
+
+October 27th, 2024: Mermaid code on frontend
 
 
