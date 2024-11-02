@@ -36,4 +36,4 @@ October 24th, 2024: Finish fine tuning process and get proper output
 
 October 27th, 2024: Mermaid code on frontend
 
-
+Novmber 1st, 2024: Need to fine-tune a new LLM, but got the prompt page
