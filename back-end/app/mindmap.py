@@ -20,17 +20,15 @@ class PromptRequest(BaseModel):
 # Initialize your OpenAI API client
 client = OpenAI(api_key=api_key)# Replace with your actual API key
 
-class PromptRequest(BaseModel):
-    prompt: str
 
 @router.post("/api/generate-mermaid")
 async def generate_mermaid(prompt_request: PromptRequest):
     prompt = prompt_request.prompt
     try:
         # Call the model to generate a response
-        completion = client.completions.create(
+        completion = client.chat.completions.create(
             model=model_id,
-            prompt=prompt,
+            prompt=[{"role": "user", "content": prompt}],
             max_tokens=100  # Adjust max_tokens as needed
         )
 
