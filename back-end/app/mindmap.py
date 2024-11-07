@@ -20,6 +20,9 @@ class PromptRequest(BaseModel):
 # Initialize your OpenAI API client
 client = OpenAI(api_key=api_key)# Replace with your actual API key
 
+class PromptRequest(BaseModel):
+    prompt: str
+
 @router.post("/api/generate-mermaid")
 async def generate_mermaid(prompt_request: PromptRequest):
     prompt = prompt_request.prompt
