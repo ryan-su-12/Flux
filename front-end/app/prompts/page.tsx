@@ -33,9 +33,9 @@ export default function PromptPage() {
 
         {/* Center the Mermaid Code horizontally */}
         {mermaidCode && (
-          <div className="mt-8 flex justify-center">
+          <div className="flex items-center justify-center h-screen">
             <div className="p-4 bg-gray-700 rounded w-full max-w-lg">
-              <h3 className="text-lg font-bold mb-2 text-center">Generated Diagram:</h3>
+              <h3 className="text-lg font-bold mb-2 text-center ">Generated Diagram:</h3>
               <div className="mermaid text-center">
                 {mermaidCode}
               </div>
