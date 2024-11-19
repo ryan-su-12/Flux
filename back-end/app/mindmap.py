@@ -26,7 +26,7 @@ async def generate_mermaid(prompt_request: PromptRequest):
     prompt = prompt_request.prompt
     try:
         # Call the model to generate a response
-        completion = client.chat.completions.create(
+        completion = client.completions.create(
             model=model_id,
             prompt=[{"role": "user", "content": prompt}],
             max_tokens=100  # Adjust max_tokens as needed
