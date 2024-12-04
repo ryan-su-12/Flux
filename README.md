@@ -40,3 +40,5 @@ November 1st, 2024: Need to fine-tune a new LLM, but got the prompt page
 
 November 6th, 2024: some new type errors but got the fine tuned model working
 
+December 3rd, 2024: Working on getting specific details
+
